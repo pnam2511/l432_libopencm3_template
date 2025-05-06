@@ -49,12 +49,12 @@ LDLIBS  += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
 
 # Toolchain
 PREFIX ?= arm-none-eabi-
-CC = $(PREFIX)gcc
-LD = $(PREFIX)ld
-OCPY  = $(PREFIX)objcopy
-ODUMP = $(PREFIX)objdump
-SZ    = $(PREFIX)size
-MKDIR = mkdir
+CC    := $(PREFIX)gcc
+LD    := $(PREFIX)ld
+OCPY  := $(PREFIX)objcopy
+ODUMP := $(PREFIX)objdump
+SZ    := $(PREFIX)size
+MKDIR := mkdir
 
 OBJ_DIR = $(BUILD_DIR)/objs
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
