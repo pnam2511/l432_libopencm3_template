@@ -32,6 +32,21 @@ MCUBOOT_SRC_FILES += \
   $(MCUBOOT_SRC_DIR)/swap_scratch.c \
   $(MCUBOOT_SRC_DIR)/tlv.c
 
+TINYCRYPT_DIR := ../mcuboot/ext/tinycrypt/lib
+TINYCRYPT_SRC_DIR := $(TINYCRYPT_DIR)/source
+TINYCRYPT_SRC_FILES += \
+  $(TINYCRYPT_SRC_DIR)/aes_decrypt.c \
+  $(TINYCRYPT_SRC_DIR)/aes_encrypt.c \
+  $(TINYCRYPT_SRC_DIR)/cbc_mode.c \
+  $(TINYCRYPT_SRC_DIR)/ccm_mode.c \
+  $(TINYCRYPT_SRC_DIR)/cmac_mode.c \
+  $(TINYCRYPT_SRC_DIR)/ctr_mode.c \
+  $(TINYCRYPT_SRC_DIR)/ctr_prng.c \
+  $(TINYCRYPT_SRC_DIR)/hmac.c \
+  $(TINYCRYPT_SRC_DIR)/hmac_prng.c \
+  $(TINYCRYPT_SRC_DIR)/sha256.c \
+  $(TINYCRYPT_SRC_DIR)/utils.c
+  
 LIBNAME = opencm3_stm32l4
 
 # Project sources/includes
@@ -46,6 +61,7 @@ SRC_FILES += $(MCUBOOT_SRC_FILES)
 # Vendor includes
 INCLUDES += -I$(OPENCM3_DIR)/include
 INCLUDES += -I$(MCUBOOT_DIR)/include
+INCLUDES += -I$(TINYCRYPT_DIR)/include
 
 # Compiler Flags
 CFLAGS = -g -O0 -std=c99
